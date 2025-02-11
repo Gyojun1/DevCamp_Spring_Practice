@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star</title>
+
+    <style>
+        /* 글머리표 제거 */
+        ul {
+            list-style-type: none;
+            padding-left: 0;  /* 들여쓰기 제거 */
+            font-size: 50px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+        <ul>
+            <li th:each="num1 : ${#numbers.sequence(0, 4)}">
+                <span th:each="num2 : ${#numbers.sequence(0, 4)}">
+                    <span th:if="${num1 == num2 || num1+num2==4}" th:text="'★'"></span>
+                    <span th:unless="${num1 == num2 || num1+num2==4}" th:text="'&nbsp;&nbsp;'"></span>
+                </span>
+            </li>
+
+                <li th:each="num1 : ${#numbers.sequence(0, 4)}">
+                    <span th:each="num2 : ${#numbers.sequence(0, 4)}"
+                          th:text="${num1 == num2 ? '★':'&nbsp;&nbsp;'}"
+                    ></span>
+                </li>
+        </ul>
+
+</body>
+</html>
